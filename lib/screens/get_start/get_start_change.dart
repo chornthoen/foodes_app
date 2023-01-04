@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodes_app/constants/image.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../home/home_screen.dart';
@@ -40,9 +41,7 @@ class _GetStartScreenChangeState extends State<GetStartScreenChange> {
                 height: 280,
                 width: 330,
                 child: Image(
-                  image: AssetImage(
-                    "assets/img/img3.png",
-                  ),
+                  image: AssetImage(changeImage),
                 ),
               ),
               const SizedBox(

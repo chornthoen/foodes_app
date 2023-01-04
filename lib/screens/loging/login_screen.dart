@@ -140,7 +140,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: OutlinedButton.icon(
                   onPressed: () {},
                   icon: const Image(
-                    image: AssetImage("assets/images/fb.png"),
+                    image: AssetImage(fbLogin),
                     width: 25,
                     height: 20,
                   ),

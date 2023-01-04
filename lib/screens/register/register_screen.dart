@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:foodes_app/screens/home/home_register.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../loging/login_screen.dart';
@@ -13,6 +13,12 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+
+  TextEditingController fullNameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,8 +42,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 const SizedBox(
                   height: 40,
                 ),
-                const TextField(
-                  decoration: InputDecoration(
+                 TextField(
+                  controller: fullNameController,
+                  decoration: const InputDecoration(
                       hintText: "Enter name",
                       labelText: "FULL NAME",
                       suffixIcon: Icon(Icons.account_circle_outlined)),
@@ -45,8 +52,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 const SizedBox(
                   height: 15,
                 ),
-                const TextField(
-                  decoration: InputDecoration(
+                 TextField(
+                  controller: emailController,
+                  decoration: const InputDecoration(
                       hintText: "Enter email",
                       labelText: "EMAIL",
                       suffixIcon: Icon(Icons.email_outlined)),
@@ -54,8 +62,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 const SizedBox(
                   height: 15,
                 ),
-                const TextField(
-                  decoration: InputDecoration(
+                 TextField(
+                  controller: phoneController,
+                  decoration:const InputDecoration(
                       hintText: "Enter phone number",
                       labelText: "PHONE",
                       suffixIcon: Icon(Icons.phone_iphone_outlined)),
@@ -63,8 +72,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 const SizedBox(
                   height: 15,
                 ),
-                const TextField(
-                  decoration: InputDecoration(
+                 TextField(
+                  obscureText: true,
+                  controller: passwordController,
+                  decoration: const InputDecoration(
                     hintText: "Enter password",
                     labelText: "PASSWORD",
                     suffixIcon: Icon(Icons.lock_outline),
@@ -77,7 +88,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   width: double.infinity,
                   height: 45,
                   child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) =>
+                           HomeRegister(
+                            fullName: fullNameController.text,
+                            email: emailController.text,
+                            phone: phoneController.text,
+                            password: passwordController.text,),),);
+                      },
                       style: OutlinedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(5)),
@@ -86,7 +105,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                       child: const Text(
                         "Register",
-                        style: TextStyle(fontSize: 14,color: Colors.black),
+                        style: TextStyle(fontSize: 14, color: Colors.black),
                       )),
                 ),
                 const SizedBox(
@@ -128,11 +147,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     TextButton(
                         onPressed: () {
                           //Navigator.push(context, MaterialPageRoute(builder: (context)=>const LoginScreen()));
-                          Navigator.push(context, MaterialPageRoute(builder: (context) =>const LoginScreen()));
+                          Navigator.push(context, MaterialPageRoute(
+                              builder: (context) => const LoginScreen()));
                         },
                         child: const Text(
                           "Login",
-                          style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, color: Colors.black),
                         ))
                   ],
                 )

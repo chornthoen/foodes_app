@@ -10,3 +10,6 @@ const String tOnBoardingImage2 ="assets/images/logo2.png";
 const String tGetStartImage = "assets/images/start.png";
 
 const String fbLogin ="assets/images/fb.png";
+
+const String changeImage ="assets/images/img3.png";
+
